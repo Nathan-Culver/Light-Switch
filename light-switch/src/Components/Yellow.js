@@ -1,9 +1,8 @@
-import React from "react";
+import React, {useState} from "react";
 
-export default function Yellow() {
+export default function Yellow(props) {
 
   return (
-    <div className="yellow">
-    </div>
+    <img src={props.yellow} alt="" />
   );
 }

@@ -1,9 +1,8 @@
-import React from "react";
+import React, {useState} from "react";
 
-export default function White() {
+export default function White(props) {
 
   return (
-    <div className="white">
-    </div>
+    <img src={props.white} alt="" />
   );
 }
