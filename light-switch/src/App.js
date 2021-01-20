@@ -1,26 +1,32 @@
-import React, {useState} from "react";
+import React, {useState, useEffect} from "react";
 import './App.css';
 
 import White from './Components/White.js'
 import Yellow from './Components/Yellow.js'
 
-const white = "https://image.flaticon.com/icons/png/512/32/32177.png";
-const yellow =
-  "https://i.pinimg.com/originals/92/94/ba/9294badee7b8f3d93fa9bc6c874641b2.png";
-
 export default function App() {
 
-  const [lightOn, setLightOn] = useState(true);
+  const [data, setData] = useState({
+    white: "https://image.flaticon.com/icons/png/512/32/32177.png",
+    yellow: "https://i.pinimg.com/originals/92/94/ba/9294badee7b8f3d93fa9bc6c874641b2.png",
+    switch: false,
+  });
+
+  const lightHandler = () => {
+    setData(() => {
+      return { ...data, switch: !data.switch };
+    })
+  }
 
   return (
-    <div onClick={() => setLightOn(!lightOn)} className="App">
-      {lightOn === false ? (
+    <div onClick={lightHandler} className="App">
+      {data.switch === false ? (
         <White 
-          white={white}
+          white={data.white}
         />
       ) : (
         <Yellow 
-          yellow={yellow}
+          yellow={data.yellow}
         />
       )}
     </div>
